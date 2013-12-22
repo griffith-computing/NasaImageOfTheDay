@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>NasaImageOfTheDay</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <!-- NasaImageOfTheDay references -->
+    <link href="/css/default.css" rel="stylesheet" />    
+    <script src="/lib/jquery-2.0.3.js"></script>
+
+    <!-- Services-->
+    <script src="/js/services/NasaIOTDService.js"></script>
+
+    <!-- Parsers -->
+    <script src="/js/parsers/NasaIOTDParser.js"></script>
+
+    <!-- Commands -->
+    <script src="/js/commands/PopViewCommand.js"></script>
+    <script src="/js/commands/PushViewCommand.js"></script>
+
+    <script src="/js/default.js"></script>
+    <script src="/js/navigator.js"></script>
+
+    
+</head>
+<body>
+    <!--<div data-win-control="WinJS.UI.HtmlControl" data-win-options="{uri: '/pages/home/home.html'}"></div>-->
+    <div id="contentHost" data-win-control="Application.PageControlNavigator" style="width:100%; height:100%;"></div>
+</body>
+</html>

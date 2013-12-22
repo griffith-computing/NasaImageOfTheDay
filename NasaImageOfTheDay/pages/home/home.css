@@ -1,0 +1,27 @@
+﻿.itemListView {
+    position: relative; 
+    height: 100%;
+    border: none;
+}
+
+.listIconTextTemplate {
+    height: 120px;
+    overflow: hidden;
+}
+.listIconTextTemplate .listIcon {
+    padding-top: 10px;
+    padding-left: 20px;
+    height: 100px !important;
+    float: left;
+}
+
+.listIconTextTemplate .clrDiv {
+    clear: both;
+}
+
+.listIconTextTemplate .listText {
+    position: absolute;
+    left: 280px;
+    top: 55px;
+    padding-left: 20px;
+}

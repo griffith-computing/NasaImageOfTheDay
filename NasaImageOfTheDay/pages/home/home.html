@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link href="/pages/home/home.css" rel="stylesheet" />
+        <script src="/pages/home/home.js"></script>
+    </head>
+    <body>
+         <div id="listIconTextTemplate"              
+             data-win-control="WinJS.Binding.Template">
+             <div class="listIconTextTemplate">
+                <img class="listIcon" data-win-bind="src: imageUrl" />
+                <div class="clrDiv"></div>
+                <div class="listText" data-win-bind="innerText: title"></div>
+             </div>
+        </div>
+
+        <div id="itemList"
+            class="itemListView"
+            data-win-control="WinJS.UI.ListView"
+            data-win-bind="winControl.itemDataSource: items"
+            data-win-options="{ layout: {type: WinJS.UI.ListLayout},
+                                itemTemplate: select('#listIconTextTemplate')}"></div>       
+    </body>
+</html>
