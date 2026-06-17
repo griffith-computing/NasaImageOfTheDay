@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:NasaImageOfTheDay.ViewModels"
+             x:Class="NasaImageOfTheDay.Views.DetailPage"
+             x:DataType="viewmodels:DetailViewModel"
+             Title="{Binding Item.Title}">
+
+    <ScrollView>
+        <StackLayout Spacing="0">
+
+            <!-- Full image -->
+            <Image Source="{Binding Item.ImageUrl}"
+                   Aspect="AspectFit"
+                   HeightRequest="300"
+                   HorizontalOptions="Fill" />
+
+            <!-- Title -->
+            <Label Text="{Binding Item.Title}"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   Padding="16,16,16,8"
+                   LineBreakMode="WordWrap" />
+
+            <!-- Publication date -->
+            <Label Text="{Binding Item.PubDate}"
+                   FontSize="12"
+                   TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray300}}"
+                   Padding="16,0,16,12" />
+
+            <!-- Description -->
+            <Label Text="{Binding Item.Description}"
+                   FontSize="14"
+                   Padding="16,0,16,24"
+                   LineBreakMode="WordWrap" />
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

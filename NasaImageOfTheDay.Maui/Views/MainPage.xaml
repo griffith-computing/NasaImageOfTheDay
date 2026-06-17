@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:NasaImageOfTheDay.ViewModels"
+             xmlns:models="clr-namespace:NasaImageOfTheDay.Models"
+             x:Class="NasaImageOfTheDay.Views.MainPage"
+             x:DataType="viewmodels:MainViewModel"
+             Title="NASA Image of the Day">
+
+    <Grid RowDefinitions="*, Auto">
+
+        <!-- Image list -->
+        <CollectionView Grid.Row="0"
+                        ItemsSource="{Binding Images}"
+                        SelectionMode="Single"
+                        SelectionChanged="OnSelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:NasaImageItem">
+                    <Grid ColumnDefinitions="110, *"
+                          Padding="12,8"
+                          RowSpacing="0">
+
+                        <Image Grid.Column="0"
+                               Source="{Binding ImageUrl}"
+                               Aspect="AspectFill"
+                               HeightRequest="80"
+                               WidthRequest="100" />
+
+                        <StackLayout Grid.Column="1"
+                                     Padding="12,0,0,0"
+                                     VerticalOptions="Center">
+                            <Label Text="{Binding Title}"
+                                   FontSize="14"
+                                   FontAttributes="Bold"
+                                   LineBreakMode="WordWrap"
+                                   MaxLines="2" />
+                            <Label Text="{Binding PubDate}"
+                                   FontSize="11"
+                                   TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray300}}"
+                                   Margin="0,4,0,0" />
+                        </StackLayout>
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+            <CollectionView.EmptyView>
+                <StackLayout VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Padding="40">
+                    <Label Text="No images available."
+                           HorizontalTextAlignment="Center"
+                           FontSize="16" />
+                </StackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+
+        <!-- Loading indicator -->
+        <ActivityIndicator Grid.Row="0"
+                           IsRunning="{Binding IsLoading}"
+                           IsVisible="{Binding IsLoading}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Color="{StaticResource Primary}" />
+
+        <!-- Error message -->
+        <Label Grid.Row="1"
+               Text="{Binding ErrorMessage}"
+               IsVisible="{Binding HasError}"
+               TextColor="{AppThemeBinding Light={StaticResource Error}, Dark={StaticResource Error}}"
+               Padding="12,8"
+               FontSize="12" />
+
+    </Grid>
+
+</ContentPage>
